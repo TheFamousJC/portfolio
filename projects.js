@@ -1,6 +1,6 @@
 // Editorial descriptions and verified public links, reviewed October 27, 2026.
 window.PROJECT_DETAILS = {
-  'whats-that-sound': {title:'What’s That Sound?', description:'Record or upload unusual mechanical noises, add machine details, and explore a troubleshooting report with possible causes, follow-up questions, and DIY difficulty.', note:'Interface preview · live Gemini analysis awaits free-tier setup', label:'Explore preview', screenshotNote:'INTERFACE PREVIEW ↗', image:'preview-whats-that-sound.png'},
+  'whats-that-sound': {title:'What’s That Sound?', description:'Record or upload mechanical noises and analyze them directly with your own Gemini key. Explore possible causes, follow-up questions, and DIY difficulty; save recordings and reports locally.', note:'Bring your own free-tier Gemini key · key stays in tab memory · MIT open source', label:'Open app', screenshotNote:'YOUR KEY · LOCAL FILES ↗', image:'preview-whats-that-sound.png'},
   world: {title:'Escape Atlas', description:'A map-based survival game. Plan routes, decode missions, evade pursuit, and manage time, money, and energy across worldwide stories.'},
   classicgames: {title:'Orbit Games', description:'Five reimagined arcade games with keyboard and touch controls, escalating levels, and local high scores. Pick a game and start playing.'},
   Panorama: {title:'Panorama', description:'Capture thoughts, reflect on patterns, and choose your next step. Keep notes in your browser and take selected thoughts to My Dot for a review.'},
