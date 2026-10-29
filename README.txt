@@ -12,3 +12,5 @@ New repositories appear automatically; add their editorial details and screensho
 when ready. Review screenshots when a project's design changes.
 
 
+
+Layover is a featured hosted app at https://layover-guide.cardash-family.workers.dev/. Its source remains private. Featured entries persist alongside public GitHub refresh results; projects.js supports an explicit external url.

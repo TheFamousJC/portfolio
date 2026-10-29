@@ -1,7 +1,8 @@
 'use strict';
 const user='TheFamousJC';
-let repos=window.PORTFOLIO_DATA.repos, language='All';
 const details=window.PROJECT_DETAILS||{};
+function includeFeatured(list){const result=[...list];for(const [name,d]of Object.entries(details))if(d.featured&&!result.some(r=>r.name===name))result.push({name,description:d.description,html_url:`https://github.com/${user}/${encodeURIComponent(name)}`,homepage:d.url,language:'JavaScript',topics:['travel','maps'],stargazers_count:0,fork:false,updated_at:d.updated});return result;}
+let repos=includeFeatured(window.PORTFOLIO_DATA.repos), language='All';
 const $=s=>document.querySelector(s);
 const colors={JavaScript:'#d6b834',Python:'#397cb1',HTML:'#e56b42'};
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;}
@@ -14,15 +15,15 @@ function render(){
  shown.sort($('#sort').value==='name'?(a,b)=>a.name.localeCompare(b.name):$('#sort').value==='stars'?(a,b)=>b.stargazers_count-a.stargazers_count:(a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
  $('#count').textContent=`${shown.length} of ${repos.length} projects`;$('#empty').hidden=shown.length>0;$('#grid').replaceChildren();
  for(const r of shown){
-  const d=details[r.name];const live=d?`https://thefamousjc.github.io/${encodeURIComponent(r.name)}/${d.path||''}`:safeLink(r.homepage);
+  const d=details[r.name];const live=safeLink(d?.url)||(d?`https://thefamousjc.github.io/${encodeURIComponent(r.name)}/${d.path||''}`:safeLink(r.homepage));
   const c=el('article','card');
   if(d){const preview=link('',live);preview.className='preview';preview.setAttribute('aria-label',`${d.label||'Try live'}: ${d.title}`);const img=el('img');img.src=d.image||`preview-${r.name}.png`;img.alt=`${d.title} ${d.screenshotNote||'website screenshot'}`;img.loading='lazy';img.width=1200;img.height=750;preview.append(img,el('span','preview-badge',d.screenshotNote||'LIVE PREVIEW ↗'));c.append(preview);}
   const body=el('div','card-body');const top=el('div','card-top');top.append(el('span','language',r.language||'Other'),el('span','',`${r.fork?'FORK · ':''}☆ ${r.stargazers_count}`));top.firstChild.style.setProperty('--color',colors[r.language]||'#abb39f');
   const h=el('h3');h.append(link(d?.title||r.name,live||r.html_url));body.append(top,h,el('div','repo-name',r.name),el('p','',d?.description||r.description||'Explore the source code and project files on GitHub.'));
   if(d?.note)body.append(el('p','project-note',d.note));
-  const bottom=el('div','card-bottom');bottom.append(link('Source ↗',r.html_url));if(live){const a=link((d?.label||'Try live')+' ↗',live);a.className='try-live';bottom.append(a);}body.append(bottom);c.append(body);$('#grid').append(c);
+  const bottom=el('div','card-bottom');bottom.append(link(d?.privateSource?'Source (private) ↗':'Source ↗',r.html_url));if(live){const a=link((d?.label||'Try live')+' ↗',live);a.className='try-live';bottom.append(a);}body.append(bottom);c.append(body);$('#grid').append(c);
  }
 }
-async function refresh(){try{let all=[];for(let page=1;;page++){const response=await fetch(`https://api.github.com/users/${user}/repos?per_page=100&sort=updated&page=${page}`,{headers:{Accept:'application/vnd.github+json'}});if(!response.ok)throw new Error('GitHub unavailable');const batch=await response.json();if(!Array.isArray(batch))throw new Error('Invalid response');all.push(...batch);if(batch.length<100)break;}repos=all;filters();render();$('#status').textContent='Up to date · public GitHub repositories';}catch{$('#status').textContent='Saved snapshot · October 27, 2026 · live refresh unavailable';}}
+async function refresh(){try{let all=[];for(let page=1;;page++){const response=await fetch(`https://api.github.com/users/${user}/repos?per_page=100&sort=updated&page=${page}`,{headers:{Accept:'application/vnd.github+json'}});if(!response.ok)throw new Error('GitHub unavailable');const batch=await response.json();if(!Array.isArray(batch))throw new Error('Invalid response');all.push(...batch);if(batch.length<100)break;}repos=includeFeatured(all);filters();render();$('#status').textContent='Up to date · public repositories + featured apps';}catch{$('#status').textContent='Saved snapshot · October 27, 2026 · live refresh unavailable';}}
 $('#search').addEventListener('input',render);$('#sort').addEventListener('change',render);filters();render();refresh();
 
