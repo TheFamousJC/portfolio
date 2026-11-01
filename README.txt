@@ -17,3 +17,5 @@ when ready. Review screenshots when a project's design changes.
 Layover is a featured hosted app at https://layover-guide.3sci-labs.workers.dev/. Its source remains private. Featured entries persist alongside public GitHub refresh results; projects.js supports an explicit external url.
 
 Cloudflare publishing: Node.js 22+ and the official Wrangler CLI. Run node tools/build-site.mjs, then npx wrangler deploy. The build copies an explicit allowlist of public files into dist/; Git metadata, source tools and credentials are excluded. No runtime server, paid services or secrets are required for the portfolio website. Existing project apps retain their own hosting URLs. GitHub remains the source repository. The original Pages site stays available.
+
+Layover preview refreshed November 1, 2026 with its illustrated airport-to-town background. Search and in-app driving estimates require each visitor’s own TomTom key, entered in the app.
