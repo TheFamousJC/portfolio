@@ -1,10 +1,10 @@
 'use strict';
 const user='TheFamousJC';
 const details=window.PROJECT_DETAILS||{};
-function includeFeatured(list){const result=[...list];for(const [name,d]of Object.entries(details))if(d.featured&&!result.some(r=>r.name===name))result.push({name,description:d.description,html_url:`https://github.com/${user}/${encodeURIComponent(name)}`,homepage:d.url,language:'JavaScript',topics:['travel','maps'],stargazers_count:0,fork:false,updated_at:d.updated});return result;}
+function includeFeatured(list){const result=[...list];for(const [name,d]of Object.entries(details))if(d.featured&&!result.some(r=>r.name===name))result.push({name,description:d.description,html_url:`https://github.com/${user}/${encodeURIComponent(name)}`,homepage:d.url,language:d.language||'JavaScript',topics:d.topics||['travel','maps'],stargazers_count:0,fork:false,updated_at:d.updated});return result;}
 let repos=includeFeatured(window.PORTFOLIO_DATA.repos), language='All';
 const $=s=>document.querySelector(s);
-const colors={JavaScript:'#d6b834',Python:'#397cb1',HTML:'#e56b42'};
+const colors={JavaScript:'#d6b834',Python:'#397cb1',HTML:'#e56b42',TypeScript:'#3178c6'};
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;}
 function safeLink(url){try{const u=new URL(url);return ['https:','http:'].includes(u.protocol)?u.href:null;}catch{return null;}}
 function link(label,url){const a=el('a','',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a;}
