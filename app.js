@@ -1,7 +1,8 @@
 'use strict';
 const user='TheFamousJC';
 const details=window.PROJECT_DETAILS||{};
-function includeFeatured(list){const result=[...list];for(const [name,d]of Object.entries(details))if(d.featured&&!result.some(r=>r.name===name))result.push({name,description:d.description,html_url:`https://github.com/${user}/${encodeURIComponent(name)}`,homepage:d.url,language:d.language||'JavaScript',topics:d.topics||['travel','maps'],stargazers_count:0,fork:false,updated_at:d.updated});return result;}
+const hiddenProjects=new Set((window.PROJECT_HIDDEN||[]).map(name=>name.toLowerCase()));
+function includeFeatured(list){const result=list.filter(r=>!hiddenProjects.has(String(r.name).toLowerCase()));for(const [name,d]of Object.entries(details))if(d.featured&&!hiddenProjects.has(name.toLowerCase())&&!result.some(r=>r.name===name))result.push({name,description:d.description,html_url:`https://github.com/${user}/${encodeURIComponent(name)}`,homepage:d.url,language:d.language||'JavaScript',topics:d.topics||['travel','maps'],stargazers_count:0,fork:false,updated_at:d.updated});return result;}
 let repos=includeFeatured(window.PORTFOLIO_DATA.repos), language='All';
 const $=s=>document.querySelector(s);
 const colors={JavaScript:'#d6b834',Python:'#397cb1',HTML:'#e56b42',TypeScript:'#3178c6'};
@@ -26,7 +27,3 @@ function render(){
 }
 async function refresh(){try{let all=[];for(let page=1;;page++){const response=await fetch(`https://api.github.com/users/${user}/repos?per_page=100&sort=updated&page=${page}`,{headers:{Accept:'application/vnd.github+json'}});if(!response.ok)throw new Error('GitHub unavailable');const batch=await response.json();if(!Array.isArray(batch))throw new Error('Invalid response');all.push(...batch);if(batch.length<100)break;}repos=includeFeatured(all);filters();render();$('#status').textContent='Up to date · public repositories + featured apps';}catch{$('#status').textContent='Saved snapshot · October 27, 2026 · live refresh unavailable';}}
 $('#search').addEventListener('input',render);$('#sort').addEventListener('change',render);filters();render();refresh();
-
-
-
-

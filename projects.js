@@ -1,6 +1,9 @@
 // Editorial descriptions and verified public links, reviewed October 27, 2026.
 window.PROJECT_DETAILS = {
-  'window-by-3sci-labs': {title:'Window · Where on Earth?', description:'Explore satellite imagery in a ten-location geography game. Guess countries, cities and landmarks, use scored zoom controls, or take on a shared Daily Expedition with hints and browser-saved scores.', note:'API-free gameplay · MIT open source · built on God’s Eye View', label:'Play Window', url:'https://window-by-3sci-labs.onrender.com/', featured:true, language:'JavaScript', topics:['geography','games','maps'], updated:'2026-11-19T17:00:00Z', image:'preview-window.jpg', screenshotNote:'PLAY THE GEOGRAPHY GAME ↗'},
+  EdgePredict: {title:'EdgePredict', description:'Create nonprofit newsletters and impact reports from CSV data, and explore donor, grant, volunteer, redaction and board-report workflows.', note:'Browser app · no API keys · imported files stay in the current tab', label:'Launch EdgePredict', url:'https://thefamousjc.github.io/EdgePredict/dist/', featured:true, language:'JavaScript', topics:['nonprofits','reporting','csv'], updated:'2026-11-19T18:00:00Z', image:'preview-edgepredict.jpg', screenshotNote:'LAUNCH THE APP ↗'},
+  TheDailyBaker: {title:'The Daily Baker', description:'Explore illustrated editorial satire with supporter and critic viewpoints, then try approving or rejecting sample story drafts in the browser.', note:'Interactive demo · sample review decisions reset on refresh', label:'Launch The Daily Baker', url:'https://thefamousjc.github.io/TheDailyBaker/docs/index.html', featured:true, language:'HTML', topics:['editorial','satire','review'], updated:'2026-11-19T18:00:00Z', image:'preview-dailybaker.jpg', screenshotNote:'OPEN THE INTERACTIVE DEMO ↗'},
+
+  'window-by-3sci-labs': {title:'Window · Where on Earth?', description:'Explore satellite imagery in a ten-location geography game. Guess countries, cities and landmarks, use scored zoom controls, or take on a shared Daily Expedition with hints and browser-saved scores.', note:'API-free gameplay · MIT open source · built on God’s Eye View', label:'Launch Window', url:'https://window-by-3sci-labs.onrender.com/', featured:true, language:'JavaScript', topics:['geography','games','maps'], updated:'2026-11-19T17:00:00Z', image:'preview-window.jpg', screenshotNote:'PLAY THE GEOGRAPHY GAME ↗'},
 
   mariana: {title:'Mariana OSINT', description:'Explore a 3Sci intelligence workspace with an architecture blueprint, investigation interface, link graph and STIX 2.1 tools.', url:'https://mariana.ai.studio/', label:'Open Mariana', featured:true, externalOnly:true, language:'JavaScript', topics:['osint','intelligence'], updated:'2026-11-03T00:00:00Z', image:'preview-mariana.png'},
   'axonpulse-mvp': {title:'AxonPulse', description:'Explore supply-chain risk signals, watchlists, and response workflows in the AxonPulse MVP.', note:'Private source repository', featured:true, privateSource:true, url:'https://axonpulse-mvp.onrender.com/', label:'Open MVP', screenshotNote:'LIVE MVP', image:'preview-axonpulse-mvp.png', language:'HTML', topics:['prototype'], updated:'2026-07-01T00:00:00Z'},
@@ -22,10 +25,5 @@ window.PROJECT_DETAILS = {
   portfolio: {url:'https://thefamousjc-portfolio.3sci-labs.workers.dev/', title:'Project Index', description:'The portfolio you are exploring: a searchable collection of public GitHub projects with screenshots, language filters, and links to try each one.'}
 };
 
-
-
-
-
-
-
-
+// Exclude only from this portfolio; the GitHub repository remains intact.
+window.PROJECT_HIDDEN = ['amirnet-studio'];
