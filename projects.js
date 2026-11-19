@@ -1,8 +1,13 @@
 // Editorial descriptions and verified public links, reviewed October 27, 2026.
 window.PROJECT_DETAILS = {
+  'window-by-3sci-labs': {title:'Window · Where on Earth?', description:'Explore satellite imagery in a ten-location geography game. Guess countries, cities and landmarks, use scored zoom controls, or take on a shared Daily Expedition with hints and browser-saved scores.', note:'API-free gameplay · MIT open source · built on God’s Eye View', label:'Play Window', url:'https://window-by-3sci-labs.onrender.com/', featured:true, language:'JavaScript', topics:['geography','games','maps'], updated:'2026-11-19T17:00:00Z', image:'preview-window.jpg', screenshotNote:'PLAY THE GEOGRAPHY GAME ↗'},
+
+  mariana: {title:'Mariana OSINT', description:'Explore a 3Sci intelligence workspace with an architecture blueprint, investigation interface, link graph and STIX 2.1 tools.', url:'https://mariana.ai.studio/', label:'Open Mariana', featured:true, externalOnly:true, language:'JavaScript', topics:['osint','intelligence'], updated:'2026-11-03T00:00:00Z', image:'preview-mariana.png'},
+  'axonpulse-mvp': {title:'AxonPulse', description:'Explore supply-chain risk signals, watchlists, and response workflows in the AxonPulse MVP.', note:'Private source repository', featured:true, privateSource:true, url:'https://axonpulse-mvp.onrender.com/', label:'Open MVP', screenshotNote:'LIVE MVP', image:'preview-axonpulse-mvp.png', language:'HTML', topics:['prototype'], updated:'2026-07-01T00:00:00Z'},
+  erroris: {title:'Erroris', description:'Search computer and internet error codes for plain-language explanations, troubleshooting steps, and source links.', note:'Created by 3Sci Labs', label:'Open app', url:'https://thefamousjc.github.io/erroris/', featured:true, language:'JavaScript', topics:['troubleshooting','reference'], image:'preview-erroris.png'},
   ventureforge: {title:'VentureForge', description:'Turn a venture idea into an interactive software simulation, business strategy, competitor landscape, marketing roadmap, and financial model. Refine the result through three strategic decisions.', note:'Created by 3Sci Labs · Gemini-powered · illustrative strategy and financial assumptions · source repository is private', label:'Open app', url:'https://ventureforge-alpha.vercel.app/', featured:true, privateSource:true, language:'TypeScript', topics:['ai','prototyping','business-strategy'], updated:'2026-11-01T10:00:00Z', image:'preview-ventureforge.png'},
 
-  layover: {title:'Layover', description:'Find places worth visiting near 500 airports. Check traffic-aware outward and return driving estimates, adjust airport allowances, and set a leave-town countdown.', note:'Bring your own free-tier TomTom key for search and driving estimates · source repository is private', label:'Open app', url:'https://layover-guide.3sci-labs.workers.dev/', featured:true, privateSource:true, updated:'2026-11-01T12:00:00Z', image:'preview-layover.png?v=20261101-visitor-key'},
+  layover: {title:'Layover', description:'Find places worth visiting near 500 airports. Check traffic-aware outward and return driving estimates, adjust airport allowances, and set a leave-town countdown.', note:'Free travel guide · driving estimates, not guarantees · source repository is private', label:'Open app', url:'https://layover-guide.3sci-labs.workers.dev/', featured:true, privateSource:true, updated:'2026-10-29T13:00:00Z', image:'preview-layover.png'},
   'whats-that-sound': {title:'What’s That Sound?', description:'Record or upload mechanical noises and analyze them directly with your own Gemini key. Explore possible causes, follow-up questions, and DIY difficulty; save recordings and reports locally.', note:'Bring your own free-tier Gemini key · key stays in tab memory · MIT open source', label:'Open app', screenshotNote:'YOUR KEY · LOCAL FILES ↗', image:'preview-whats-that-sound.png'},
   world: {title:'Escape Atlas', description:'A map-based survival game with 50 worldwide stories. Learn with the in-game Help tab and five-step quick-start wizard, then plan routes, decode missions, evade pursuit, and manage time, money, and energy.'},
   classicgames: {title:'Orbit Games', description:'Five reimagined arcade games with keyboard and touch controls, escalating levels, and local high scores. Pick a game and start playing.'},
@@ -16,6 +21,11 @@ window.PROJECT_DETAILS = {
   'infographics-studio': {title:'Infographics Studio', description:'Build editable comparison infographics with rankings, metrics, pros and cons. Create a series of cards and export a high-resolution PNG.', note:'AI generation requires your Gemini API key · manual editing available'},
   portfolio: {url:'https://thefamousjc-portfolio.3sci-labs.workers.dev/', title:'Project Index', description:'The portfolio you are exploring: a searchable collection of public GitHub projects with screenshots, language filters, and links to try each one.'}
 };
+
+
+
+
+
 
 
 
